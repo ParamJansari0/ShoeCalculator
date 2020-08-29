@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -70,83 +71,104 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Center(child: Text(widget.title)),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 20.0,
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              style: TextStyle(fontSize: 20.0, height: 2.0),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Input',
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 20.0,
               ),
-              onChanged: (value) {
-                setState(() {
-                  input = value;
-                  calc();
-                });
-              },
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 50,
-                  width: 100,
-                  child: FlatButton(
-                    color: gsSelected == true ? Colors.tealAccent : Colors.grey,
-                    textColor: Colors.black,
-                    onPressed: () {
-                      setState(() {
-                        gsSelected = true;
-                        calc();
-                      });
-                    },
-                    child: Text(
-                      'GS',
-                      style: TextStyle(fontSize: 20.0),
+              TextField(
+                keyboardType: TextInputType.number,
+                style: TextStyle(fontSize: 20.0, height: 2.0),
+                decoration: InputDecoration(
+                  icon: FaIcon(FontAwesomeIcons.dollarSign),
+                  border: OutlineInputBorder(),
+                  labelText: 'Input',
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    input = value;
+                    calc();
+                  });
+                },
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 100,
+                    child: FlatButton(
+                      color:
+                          gsSelected == true ? Colors.tealAccent : Colors.grey,
+                      textColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          gsSelected = true;
+                          calc();
+                        });
+                      },
+                      child: Text(
+                        'GS',
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 50,
-                  width: 100,
-                  child: FlatButton(
-                    color:
-                        gsSelected == false ? Colors.tealAccent : Colors.grey,
-                    textColor: Colors.black,
-                    onPressed: () {
-                      setState(() {
-                        gsSelected = false;
-                        calc();
-                      });
-                    },
-                    child: Text(
-                      'MENS',
-                      style: TextStyle(fontSize: 20.0),
+                  Container(
+                    height: 50,
+                    width: 100,
+                    child: FlatButton(
+                      color:
+                          gsSelected == false ? Colors.tealAccent : Colors.grey,
+                      textColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          gsSelected = false;
+                          calc();
+                        });
+                      },
+                      child: Text(
+                        'MENS',
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            TextField(
-              enabled: false,
-              style: TextStyle(fontSize: 20.0, height: 2.0),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: answer,
+                ],
               ),
-            ),
-          ],
+              SizedBox(
+                height: 20.0,
+              ),
+              TextField(
+                enabled: false,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  height: 2.0,
+                ),
+                decoration: InputDecoration(
+                  icon: FaIcon(
+                    FontAwesomeIcons.yenSign,
+                    color: Colors.white,
+                  ),
+                  border: OutlineInputBorder(),
+                  labelText: answer,
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
