@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 keyboardType: TextInputType.number,
                 style: TextStyle(fontSize: 20.0, height: 2.0),
                 decoration: InputDecoration(
-                  icon: FaIcon(FontAwesomeIcons.dollarSign),
+                  // icon: FaIcon(FontAwesomeIcons.dollarSign),
                   border: OutlineInputBorder(),
                   labelText: 'Input',
                 ),
@@ -156,10 +156,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 2.0,
                 ),
                 decoration: InputDecoration(
-                  icon: FaIcon(
-                    FontAwesomeIcons.yenSign,
-                    color: Colors.white,
-                  ),
+                  // icon: FaIcon(
+                  //   FontAwesomeIcons.yenSign,
+                  //   color: Colors.white,
+                  // ),
                   border: OutlineInputBorder(),
                   labelText: answer,
                   labelStyle: TextStyle(
